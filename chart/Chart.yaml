@@ -1,0 +1,6 @@
+apiVersion: v2
+name: kubernetes-dependecy-tracker
+description: A Helm chart for Kubernetes Dependency Tracker
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

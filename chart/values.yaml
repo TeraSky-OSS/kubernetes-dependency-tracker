@@ -1,0 +1,36 @@
+replicaCount: 1
+image:
+  repository: ghcr.io/terasky-oss/k8s-dependency-tracker
+  pullPolicy: IfNotPresent
+  tag: "0.2.0"
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+rbac:
+  create: true
+dependencyTracker:
+  insecureNoAuthChecks: false
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+service:
+  type: ClusterIP
+  port: 8080
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: k8s-dependency-tracker.127.0.0.1.nip.io
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
