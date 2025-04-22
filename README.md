@@ -15,3 +15,14 @@ ingress:
 ```bash
 helm upgrade --install deps-tracker -n dependency-tracker --create-namespace  oci://ghcr.io/terasky-oss/kubernetes-dependecy-tracker:0.1.0 -f values.yaml
 ```
+3. Test the application
+```bash
+export INGRESS_HOST=<FILL ME IN>
+export SA_TOKEN=<FILL ME IN>
+export RESOURCE_KIND=deployment
+export RESOURCE_NAMESPACE=dependency-tracker
+export RESOURCE_NAME=deps-tracker-kubernetes-dependecy-tracker
+export RESOURCE_API_VERSION="apps/v1"
+
+curl "${INGRESS_HOST}/dependency?kind=${RESOURCE_KIND}&namespace=${RESOURCE_NAMESPACE}&name=${RESOURCE_NAME}&apiVersion=${RESOURCE_API_VERSION}" -H "Authorization: Bearer ${SA_TOKEN}"
+```
